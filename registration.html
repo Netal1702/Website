@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="user.css">
+</head>
+<script>
+function validate()
+{
+    var uname=document.validateform.uname.value;
+    var password=document.validateform.password.value;
+    var cpassword=document.validateform.cpassword.value;
+    var cnumber=document.validateform.cnumber.value;
+    var email=document.validateform.email.value;
+    var x=email.indexOf("@");
+    var y=email.lastIndexOf(".");
+    if(uname==null || uname=="")
+    {
+        alert("Username should not be empty");
+        return false;
+    }
+    if(password==null || password=="")
+    {
+        alert("password should not be empty");
+        return false;
+    }
+    else if(password.length<6)
+    {
+        alert("password length should not be less than 6");
+        return false;
+    }
+    else if(cpassword==null || cpassword=="")
+    {
+        alert("Confirm password should not be empty");
+        return false;
+    }
+    else if(password!=cpassword)
+    {
+        alert("Confirm password and password must match");
+        return false;
+    }
+    if(cnumber==null || cnumber=="")
+    {
+        alert("Contact Number should not be empty");
+        return false;
+    }
+    else if(isNaN(cnumber))
+    {
+        alert("Contact Number must be in nmmber");
+        return false;
+    }
+    if(email==null || email=="")
+    {
+        alert("Email should not be empty");
+        return false;
+    }
+    else if(x<1 || y<x+2 || y+2>=email.length)
+    {
+        alert("Please enter proper email");
+        return false;
+    }
+    alert("Registration Successful !!!");
+}
+</script>
+<body>
+    <header id="mainheader">
+        <div id="hed" class="container">
+            <h1>Interior Design</h1>
+        </div>
+    </header>
+    <nav id="navbar">
+        <div class="container menubar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</nav>
+
+<div class="container">
+    <form name="validateform" onsubmit="validate()">
+        <table>
+            <tr>
+                <td> Username </td>
+                <td><input class="inp" type="text" name="uname" placeholder="Enter your Username"></td>
+            </tr>
+            <tr>
+                <td>Password </td>
+                <td><input class="inp" type="password" name="password" placeholder="Enter the password"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password </td>
+                <td><input class="inp" type="password" name="cpassword" placeholder="Re-enter the password"></td>
+            </tr>
+            <tr>
+                <td>Contact Number </td>
+                <td><input class="inp" type="text" name="cnumber" placeholder="Enter your Contact number"></td>
+            </tr>
+            <tr>
+                <td>Email Id </td>
+                <td><input class="inp" type="text" name="email" placeholder="Enter your Email"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <br>
+                    <input class="inp, btn" type="submit" value="Register">
+                </td>
+            </tr>
+        </form>
+    </table>
+</div>
+</body>
+</html>
